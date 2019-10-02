@@ -3,6 +3,12 @@ const h1 = document.querySelector('h1');
 const p = document.querySelector('p');
 const img = document.querySelector('img');
 const links = document.querySelector('nav')
+const a = document.querySelector('.nav-link');
+const div = document.querySelector('div');
+
+a.addEventListener("click", (event) => {
+    event.preventDefault();
+})
 
 window.addEventListener("keydown", () => {
     alert("You have pressed a key");
@@ -12,8 +18,21 @@ window.addEventListener("scroll", () => {
     links.style.backgroundColor = 'yellow';
 });
 
-h1.addEventListener("mouseover", () => {
-    h1.style.color = 'red';
+window.addEventListener("wheel", () => {
+    h1.style.color = 'cyan';
+});
+
+div.addEventListener("mouseover", () => {
+    div.style.color = 'red';
+});
+
+links.addEventListener("click", () => {
+    a.style.border = 'red 1px dashed';
+});
+
+a.addEventListener("click", (event) => {
+    a.style.border = 'gray 1px dashed';
+    event.stopPropagation();
 });
 
 h1.addEventListener("dblclick", () => {
@@ -30,10 +49,6 @@ window.addEventListener("drag", () => {
 
 window.addEventListener("dragend", () => {
     alert("You have dropped the element");
-});
-
-window.addEventListener("wheel", () => {
-    h1.style.color = 'cyan';
 });
 
 window.addEventListener("mousedown", () => {
